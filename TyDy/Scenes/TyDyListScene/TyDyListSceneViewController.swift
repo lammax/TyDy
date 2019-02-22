@@ -17,10 +17,12 @@ protocol TyDyListSceneDisplayLogic: class
   func displaySomething(viewModel: TyDyListScene.Something.ViewModel)
 }
 
-class TyDyListSceneViewController: UIViewController {
+class TyDyListSceneViewController: UITableViewController {
     // MARK: Vars
     var interactor: TyDyListSceneBusinessLogic?
     var router: (NSObjectProtocol & TyDyListSceneRoutingLogic & TyDyListSceneDataPassing)?
+    
+    private let itemArray = ["Go walk", "Be happy", "Nice car"]
     
     // MARK: Outlets
     @IBOutlet weak var mainScrollView: UIScrollView!
@@ -76,4 +78,31 @@ extension TyDyListSceneViewController: TyDyListSceneDisplayLogic {
         //nameTextField.text = viewModel.name
     }
 
+}
+
+extension TyDyListSceneViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.itemArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
+        cell.textLabel?.text = self.itemArray[indexPath.row]
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print(itemArray[indexPath.row])
+        let currentCell = tableView.cellForRow(at: indexPath)
+        if (currentCell?.accessoryType == .checkmark ) {
+            currentCell?.accessoryType = .none
+        } else {
+            currentCell?.accessoryType = .checkmark
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }
