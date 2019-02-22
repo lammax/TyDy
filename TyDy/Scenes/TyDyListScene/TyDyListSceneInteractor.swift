@@ -12,9 +12,8 @@
 
 import UIKit
 
-protocol TyDyListSceneBusinessLogic
-{
-  func doSomething(request: TyDyListScene.Something.Request)
+protocol TyDyListSceneBusinessLogic {
+    func addItem(request: TyDyListScene.AddItem.Request)
 }
 
 protocol TyDyListSceneDataStore
@@ -30,12 +29,9 @@ class TyDyListSceneInteractor: TyDyListSceneBusinessLogic, TyDyListSceneDataStor
   
   // MARK: Do something
   
-  func doSomething(request: TyDyListScene.Something.Request)
-  {
-    worker = TyDyListSceneWorker()
-    worker?.doSomeWork()
+    func addItem(request: TyDyListScene.AddItem.Request) {
+        let response = TyDyListScene.AddItem.Response()
+        self.presenter?.presentAddItem(response: response)
+    }
     
-    let response = TyDyListScene.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
 }

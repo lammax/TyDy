@@ -12,9 +12,8 @@
 
 import UIKit
 
-protocol TyDyListSceneDisplayLogic: class
-{
-  func displaySomething(viewModel: TyDyListScene.Something.ViewModel)
+protocol TyDyListSceneDisplayLogic: class {
+    func displayAddItem(viewModel: TyDyListScene.AddItem.ViewModel)
 }
 
 class TyDyListSceneViewController: UITableViewController {
@@ -22,10 +21,9 @@ class TyDyListSceneViewController: UITableViewController {
     var interactor: TyDyListSceneBusinessLogic?
     var router: (NSObjectProtocol & TyDyListSceneRoutingLogic & TyDyListSceneDataPassing)?
     
-    private let itemArray = ["Go walk", "Be happy", "Nice car"]
+    private var itemArray = ["Go walk", "Be happy", "Nice car"]
     
     // MARK: Outlets
-    @IBOutlet weak var mainScrollView: UIScrollView!
     
     // MARK: Object lifecycle
 
@@ -60,22 +58,37 @@ class TyDyListSceneViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
     }
 
     // MARK: Do something
-
-    func doSomething() {
-        let request = TyDyListScene.Something.Request()
-        interactor?.doSomething(request: request)
+    @IBAction func addItem(_ sender: UIBarButtonItem) {
+        self.addItem()
+    }
+    
+    func addItem() {
+        let request = TyDyListScene.AddItem.Request()
+        interactor?.addItem(request: request)
     }
 
 }
 
 extension TyDyListSceneViewController: TyDyListSceneDisplayLogic {
     
-    func displaySomething(viewModel: TyDyListScene.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayAddItem(viewModel: TyDyListScene.AddItem.ViewModel) {
+        let alert = UIAlertController(title: "Add new item", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            // here is whart will happen when user once click Add Item
+            if let text = alert.textFields?.first?.text {
+                self.itemArray.append(text)
+                self.tableView.reloadData()
+            }
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Type new item here"
+            print(textField.text)
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

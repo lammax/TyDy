@@ -12,20 +12,17 @@
 
 import UIKit
 
-protocol TyDyListScenePresentationLogic
-{
-  func presentSomething(response: TyDyListScene.Something.Response)
+protocol TyDyListScenePresentationLogic {
+    func presentAddItem(response: TyDyListScene.AddItem.Response)
 }
 
-class TyDyListScenePresenter: TyDyListScenePresentationLogic
-{
-  weak var viewController: TyDyListSceneDisplayLogic?
+class TyDyListScenePresenter: TyDyListScenePresentationLogic {
+    weak var viewController: TyDyListSceneDisplayLogic?
   
-  // MARK: Do something
+    // MARK: Do something
   
-  func presentSomething(response: TyDyListScene.Something.Response)
-  {
-    let viewModel = TyDyListScene.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    func presentAddItem(response: TyDyListScene.AddItem.Response) {
+        let viewModel = TyDyListScene.AddItem.ViewModel()
+        viewController?.displayAddItem(viewModel: viewModel)
+    }
 }
