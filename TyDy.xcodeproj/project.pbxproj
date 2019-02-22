@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		04CEA36721FB81A9008D622F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA36621FB81A9008D622F /* AppDelegate.swift */; };
-		04CEA36921FB81A9008D622F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA36821FB81A9008D622F /* ViewController.swift */; };
 		04CEA36C21FB81A9008D622F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CEA36A21FB81A9008D622F /* Main.storyboard */; };
 		04CEA36E21FB81A9008D622F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04CEA36D21FB81A9008D622F /* Assets.xcassets */; };
 		04CEA37121FB81A9008D622F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CEA36F21FB81A9008D622F /* LaunchScreen.storyboard */; };
 		04CEA37C21FB81A9008D622F /* TyDyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA37B21FB81A9008D622F /* TyDyTests.swift */; };
+		04CEA38E21FB8214008D622F /* TyDyListScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA38821FB8214008D622F /* TyDyListScenePresenter.swift */; };
+		04CEA38F21FB8214008D622F /* TyDyListSceneWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA38921FB8214008D622F /* TyDyListSceneWorker.swift */; };
+		04CEA39021FB8214008D622F /* TyDyListSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA38A21FB8214008D622F /* TyDyListSceneRouter.swift */; };
+		04CEA39121FB8214008D622F /* TyDyListSceneModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA38B21FB8214008D622F /* TyDyListSceneModels.swift */; };
+		04CEA39221FB8214008D622F /* TyDyListSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA38C21FB8214008D622F /* TyDyListSceneViewController.swift */; };
+		04CEA39321FB8214008D622F /* TyDyListSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA38D21FB8214008D622F /* TyDyListSceneInteractor.swift */; };
+		04CEA39521FB8226008D622F /* TyDyListSceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA39421FB8226008D622F /* TyDyListSceneConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +34,6 @@
 /* Begin PBXFileReference section */
 		04CEA36321FB81A9008D622F /* TyDy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TyDy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CEA36621FB81A9008D622F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04CEA36821FB81A9008D622F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04CEA36B21FB81A9008D622F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04CEA36D21FB81A9008D622F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04CEA37021FB81A9008D622F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +41,13 @@
 		04CEA37721FB81A9008D622F /* TyDyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TyDyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CEA37B21FB81A9008D622F /* TyDyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyDyTests.swift; sourceTree = "<group>"; };
 		04CEA37D21FB81A9008D622F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04CEA38821FB8214008D622F /* TyDyListScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyDyListScenePresenter.swift; sourceTree = "<group>"; };
+		04CEA38921FB8214008D622F /* TyDyListSceneWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyDyListSceneWorker.swift; sourceTree = "<group>"; };
+		04CEA38A21FB8214008D622F /* TyDyListSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyDyListSceneRouter.swift; sourceTree = "<group>"; };
+		04CEA38B21FB8214008D622F /* TyDyListSceneModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyDyListSceneModels.swift; sourceTree = "<group>"; };
+		04CEA38C21FB8214008D622F /* TyDyListSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyDyListSceneViewController.swift; sourceTree = "<group>"; };
+		04CEA38D21FB8214008D622F /* TyDyListSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyDyListSceneInteractor.swift; sourceTree = "<group>"; };
+		04CEA39421FB8226008D622F /* TyDyListSceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyDyListSceneConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +89,8 @@
 		04CEA36521FB81A9008D622F /* TyDy */ = {
 			isa = PBXGroup;
 			children = (
+				04CEA38621FB81C8008D622F /* Scenes */,
 				04CEA36621FB81A9008D622F /* AppDelegate.swift */,
-				04CEA36821FB81A9008D622F /* ViewController.swift */,
 				04CEA36A21FB81A9008D622F /* Main.storyboard */,
 				04CEA36D21FB81A9008D622F /* Assets.xcassets */,
 				04CEA36F21FB81A9008D622F /* LaunchScreen.storyboard */,
@@ -94,6 +106,28 @@
 				04CEA37D21FB81A9008D622F /* Info.plist */,
 			);
 			path = TyDyTests;
+			sourceTree = "<group>";
+		};
+		04CEA38621FB81C8008D622F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				04CEA38721FB81DD008D622F /* TyDyListScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		04CEA38721FB81DD008D622F /* TyDyListScene */ = {
+			isa = PBXGroup;
+			children = (
+				04CEA38821FB8214008D622F /* TyDyListScenePresenter.swift */,
+				04CEA38921FB8214008D622F /* TyDyListSceneWorker.swift */,
+				04CEA38A21FB8214008D622F /* TyDyListSceneRouter.swift */,
+				04CEA38B21FB8214008D622F /* TyDyListSceneModels.swift */,
+				04CEA38C21FB8214008D622F /* TyDyListSceneViewController.swift */,
+				04CEA38D21FB8214008D622F /* TyDyListSceneInteractor.swift */,
+				04CEA39421FB8226008D622F /* TyDyListSceneConfigurator.swift */,
+			);
+			path = TyDyListScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +231,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04CEA36921FB81A9008D622F /* ViewController.swift in Sources */,
+				04CEA39021FB8214008D622F /* TyDyListSceneRouter.swift in Sources */,
+				04CEA39121FB8214008D622F /* TyDyListSceneModels.swift in Sources */,
+				04CEA39221FB8214008D622F /* TyDyListSceneViewController.swift in Sources */,
 				04CEA36721FB81A9008D622F /* AppDelegate.swift in Sources */,
+				04CEA38F21FB8214008D622F /* TyDyListSceneWorker.swift in Sources */,
+				04CEA39521FB8226008D622F /* TyDyListSceneConfigurator.swift in Sources */,
+				04CEA38E21FB8214008D622F /* TyDyListScenePresenter.swift in Sources */,
+				04CEA39321FB8214008D622F /* TyDyListSceneInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z8JVJD6M2F;
 				INFOPLIST_FILE = TyDy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,6 +422,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z8JVJD6M2F;
 				INFOPLIST_FILE = TyDy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
