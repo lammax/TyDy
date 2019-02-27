@@ -14,6 +14,8 @@ import UIKit
 
 protocol TyDyListScenePresentationLogic {
     func presentAddItem(response: TyDyListScene.AddItem.Response)
+    func presentSaveItemText(response: TyDyListScene.SaveNewItem.Response)
+    func presentLoadData(response: TyDyListScene.LoadData.Response)
 }
 
 class TyDyListScenePresenter: TyDyListScenePresentationLogic {
@@ -25,4 +27,15 @@ class TyDyListScenePresenter: TyDyListScenePresentationLogic {
         let viewModel = TyDyListScene.AddItem.ViewModel()
         viewController?.displayAddItem(viewModel: viewModel)
     }
+    
+    func presentSaveItemText(response: TyDyListScene.SaveNewItem.Response) {
+        let viewModel = TyDyListScene.SaveNewItem.ViewModel()
+        viewController?.displaySaveItemText(viewModel: viewModel)
+    }
+    
+    func presentLoadData(response: TyDyListScene.LoadData.Response) {
+        let viewModel = TyDyListScene.LoadData.ViewModel()
+        viewController?.displayLoadData(viewModel: viewModel)
+    }
+    
 }

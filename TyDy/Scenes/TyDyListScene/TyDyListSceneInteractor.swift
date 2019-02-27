@@ -14,24 +14,43 @@ import UIKit
 
 protocol TyDyListSceneBusinessLogic {
     func addItem(request: TyDyListScene.AddItem.Request)
+    func saveItemText(request: TyDyListScene.SaveNewItem.Request)
+    func loadData(request: TyDyListScene.LoadData.Request)
 }
 
-protocol TyDyListSceneDataStore
-{
-  //var name: String { get set }
+protocol TyDyListSceneDataStore {
+    var itemArray: [String] { get set }
 }
 
-class TyDyListSceneInteractor: TyDyListSceneBusinessLogic, TyDyListSceneDataStore
-{
-  var presenter: TyDyListScenePresentationLogic?
-  var worker: TyDyListSceneWorker?
-  //var name: String = ""
+class TyDyListSceneInteractor: TyDyListSceneBusinessLogic, TyDyListSceneDataStore {
+    
+    var presenter: TyDyListScenePresentationLogic?
+    var worker: TyDyListSceneWorker?
+    var itemArray = ["Go walk", "Be happy", "Nice car"]
+    
+    let defaults = UserDefaults.standard
+    
   
   // MARK: Do something
   
     func addItem(request: TyDyListScene.AddItem.Request) {
         let response = TyDyListScene.AddItem.Response()
         self.presenter?.presentAddItem(response: response)
+    }
+    
+    func saveItemText(request: TyDyListScene.SaveNewItem.Request) {
+        self.itemArray.append(request.itemText)
+        self.defaults.set(self.itemArray, forKey: Defaults.keys.TyDyArray.rawValue)
+        let response = TyDyListScene.SaveNewItem.Response()
+        self.presenter?.presentSaveItemText(response: response)
+    }
+    
+    func loadData(request: TyDyListScene.LoadData.Request) {
+        if let tyDyArray = self.defaults.array(forKey: Defaults.keys.TyDyArray.rawValue) as? [String] {
+            self.itemArray = tyDyArray
+            let response = TyDyListScene.LoadData.Response()
+            self.presenter?.presentLoadData(response: response)
+        }
     }
     
 }

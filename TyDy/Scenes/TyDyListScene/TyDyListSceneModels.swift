@@ -25,4 +25,23 @@ enum TyDyListScene
     }
   }
     
+    enum SaveNewItem {
+        struct Request {
+            let itemText: String
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
+    }
+    
+    enum LoadData {
+        struct Request {
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
+    }
+
 }

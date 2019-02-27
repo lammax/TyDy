@@ -14,14 +14,14 @@ import UIKit
 
 protocol TyDyListSceneDisplayLogic: class {
     func displayAddItem(viewModel: TyDyListScene.AddItem.ViewModel)
+    func displaySaveItemText(viewModel: TyDyListScene.SaveNewItem.ViewModel)
+    func displayLoadData(viewModel: TyDyListScene.LoadData.ViewModel)
 }
 
 class TyDyListSceneViewController: UITableViewController {
     // MARK: Vars
     var interactor: TyDyListSceneBusinessLogic?
     var router: (NSObjectProtocol & TyDyListSceneRoutingLogic & TyDyListSceneDataPassing)?
-    
-    private var itemArray = ["Go walk", "Be happy", "Nice car"]
     
     // MARK: Outlets
     
@@ -58,6 +58,7 @@ class TyDyListSceneViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadData()
     }
 
     // MARK: Do something
@@ -70,6 +71,18 @@ class TyDyListSceneViewController: UITableViewController {
         interactor?.addItem(request: request)
     }
 
+    func saveItemText(text: String) {
+        let request = TyDyListScene.SaveNewItem.Request(
+            itemText: text
+        )
+        interactor?.saveItemText(request: request)
+    }
+    
+    func loadData() {
+        let request = TyDyListScene.LoadData.Request()
+        interactor?.loadData(request: request)
+    }
+    
 }
 
 extension TyDyListSceneViewController: TyDyListSceneDisplayLogic {
@@ -79,30 +92,39 @@ extension TyDyListSceneViewController: TyDyListSceneDisplayLogic {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             // here is whart will happen when user once click Add Item
             if let text = alert.textFields?.first?.text {
-                self.itemArray.append(text)
-                self.tableView.reloadData()
+                self.saveItemText(text: text)
             }
         }
         alert.addTextField { (textField) in
             textField.placeholder = "Type new item here"
-            print(textField.text)
         }
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
-
+    
+    func displaySaveItemText(viewModel: TyDyListScene.SaveNewItem.ViewModel) {
+        self.tableView.reloadData()
+    }
+    
+    func displayLoadData(viewModel: TyDyListScene.LoadData.ViewModel) {
+        self.tableView.reloadData()
+    }
+    
 }
 
 extension TyDyListSceneViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.itemArray.count
+        if let count = self.router?.dataStore?.itemArray.count {
+            return count
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
-        cell.textLabel?.text = self.itemArray[indexPath.row]
+        cell.textLabel?.text = self.router?.dataStore?.itemArray[indexPath.row]
         
         return cell
     }
