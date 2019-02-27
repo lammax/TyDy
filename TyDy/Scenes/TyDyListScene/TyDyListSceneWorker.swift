@@ -12,9 +12,15 @@
 
 import UIKit
 
-class TyDyListSceneWorker
-{
-  func doSomeWork()
-  {
-  }
+class TyDyListSceneWorker {
+    
+    func saveData(data: [TyDyItem]?) {
+        if let data = data {
+            Encoder.shared.saveData(dataToEncode: data)
+        }
+    }
+    
+    func loadData() -> [TyDyItem]? {
+        return Encoder.shared.loadData()
+    }
 }

@@ -17,6 +17,7 @@ protocol TyDyListScenePresentationLogic {
     func presentSaveItem(response: TyDyListScene.SaveNewItem.Response)
     func presentLoadData(response: TyDyListScene.LoadData.Response)
     func presentUpdateData(response: TyDyListScene.UpdateData.Response)
+    func presentSaveData(response: TyDyListScene.SaveData.Response)
 }
 
 class TyDyListScenePresenter: TyDyListScenePresentationLogic {
@@ -42,6 +43,11 @@ class TyDyListScenePresenter: TyDyListScenePresentationLogic {
     func presentUpdateData(response: TyDyListScene.UpdateData.Response) {
         let viewModel = TyDyListScene.UpdateData.ViewModel()
         viewController?.displayUpdateData(viewModel: viewModel)
+    }
+    
+    func presentSaveData(response: TyDyListScene.SaveData.Response) {
+        let viewModel = TyDyListScene.SaveData.ViewModel()
+        viewController?.displaySaveData(viewModel: viewModel)
     }
     
 }

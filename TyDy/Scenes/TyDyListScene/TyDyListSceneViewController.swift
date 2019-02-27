@@ -17,6 +17,7 @@ protocol TyDyListSceneDisplayLogic: class {
     func displaySaveItem(viewModel: TyDyListScene.SaveNewItem.ViewModel)
     func displayLoadData(viewModel: TyDyListScene.LoadData.ViewModel)
     func displayUpdateData(viewModel: TyDyListScene.UpdateData.ViewModel)
+    func displaySaveData(viewModel: TyDyListScene.SaveData.ViewModel)
 }
 
 class TyDyListSceneViewController: UITableViewController {
@@ -89,6 +90,11 @@ class TyDyListSceneViewController: UITableViewController {
         interactor?.updateData(request: request)
     }
 
+    func saveData() {
+        let request = TyDyListScene.SaveData.Request()
+        interactor?.saveData(request: request)
+    }
+    
 }
 
 extension TyDyListSceneViewController: TyDyListSceneDisplayLogic {
@@ -120,12 +126,16 @@ extension TyDyListSceneViewController: TyDyListSceneDisplayLogic {
          self.tableView.reloadData()
     }
     
+    func displaySaveData(viewModel: TyDyListScene.SaveData.ViewModel) {
+        //do something on SaveData action
+    }
+    
 }
 
 extension TyDyListSceneViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = self.router?.dataStore?.itemArray.count {
+        if let count = self.router?.dataStore?.itemArray?.count {
             return count
         }
         return 0
@@ -133,7 +143,7 @@ extension TyDyListSceneViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let currentItem = self.router?.dataStore?.itemArray[indexPath.row]
+        let currentItem = self.router?.dataStore?.itemArray?[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
         cell.textLabel?.text = currentItem?.title
         cell.accessoryType = (currentItem?.done != nil && (currentItem?.done)!) ? .checkmark : .none
@@ -143,9 +153,10 @@ extension TyDyListSceneViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print(itemArray[indexPath.row])
-        let done = self.router?.dataStore?.itemArray[indexPath.row].done != nil && (self.router?.dataStore?.itemArray[indexPath.row].done)!
-        self.router?.dataStore?.itemArray[indexPath.row].done = !done
+        let done = self.router?.dataStore?.itemArray?[indexPath.row].done != nil && (self.router?.dataStore?.itemArray?[indexPath.row].done)!
+        self.router?.dataStore?.itemArray?[indexPath.row].done = !done
         tableView.deselectRow(at: indexPath, animated: true)
+        self.saveData()
         self.updateData()
     }
     

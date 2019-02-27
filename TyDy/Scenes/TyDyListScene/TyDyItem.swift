@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TyDyItem {
+class TyDyItem: Codable {
     var title: String = ""
     var done: Bool = false
     

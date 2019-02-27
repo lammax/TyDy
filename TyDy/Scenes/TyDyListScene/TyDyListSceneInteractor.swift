@@ -17,19 +17,18 @@ protocol TyDyListSceneBusinessLogic {
     func saveItem(request: TyDyListScene.SaveNewItem.Request)
     func loadData(request: TyDyListScene.LoadData.Request)
     func updateData(request: TyDyListScene.UpdateData.Request)
+    func saveData(request: TyDyListScene.SaveData.Request)
 }
 
 protocol TyDyListSceneDataStore {
-    var itemArray: [TyDyItem] { get set }
+    var itemArray: [TyDyItem]? { get set }
 }
 
 class TyDyListSceneInteractor: TyDyListSceneBusinessLogic, TyDyListSceneDataStore {
     
     var presenter: TyDyListScenePresentationLogic?
     var worker: TyDyListSceneWorker?
-    var itemArray = [TyDyItem]()
-    
-    let defaults = UserDefaults.standard
+    var itemArray: [TyDyItem]? = [TyDyItem]()
     
   
   // MARK: Do something
@@ -40,23 +39,32 @@ class TyDyListSceneInteractor: TyDyListSceneBusinessLogic, TyDyListSceneDataStor
     }
     
     func saveItem(request: TyDyListScene.SaveNewItem.Request) {
-        self.itemArray.append(request.item)
-        //self.defaults.set(self.itemArray, forKey: Defaults.keys.TyDyArray.rawValue)
+        self.itemArray?.append(request.item)
+        self.worker?.saveData(data: self.itemArray)
+        
         let response = TyDyListScene.SaveNewItem.Response()
         self.presenter?.presentSaveItem(response: response)
     }
     
     func loadData(request: TyDyListScene.LoadData.Request) {
-        if let tyDyArray = self.defaults.array(forKey: Defaults.keys.TyDyArray.rawValue) as? [TyDyItem] {
-            self.itemArray = tyDyArray
-            let response = TyDyListScene.LoadData.Response()
-            self.presenter?.presentLoadData(response: response)
+        if let loadedArray = self.worker?.loadData() {
+            self.itemArray = loadedArray
         }
+
+        let response = TyDyListScene.LoadData.Response()
+        self.presenter?.presentLoadData(response: response)
     }
     
     func updateData(request: TyDyListScene.UpdateData.Request) {
         let response = TyDyListScene.UpdateData.Response()
         self.presenter?.presentUpdateData(response: response)
+    }
+    
+    func saveData(request: TyDyListScene.SaveData.Request) {
+        self.worker?.saveData(data: self.itemArray)
+
+        let response = TyDyListScene.SaveData.Response()
+        self.presenter?.presentSaveData(response: response)
     }
     
 }

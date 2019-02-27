@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		044F8FAF22268305008654BE /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F8FAE22268305008654BE /* Defaults.swift */; };
 		044F8FB12226883C008654BE /* TyDyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F8FB02226883C008654BE /* TyDyItem.swift */; };
+		044F8FB422269593008654BE /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F8FB322269593008654BE /* Encoder.swift */; };
 		04CEA36721FB81A9008D622F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA36621FB81A9008D622F /* AppDelegate.swift */; };
 		04CEA36C21FB81A9008D622F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CEA36A21FB81A9008D622F /* Main.storyboard */; };
 		04CEA36E21FB81A9008D622F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04CEA36D21FB81A9008D622F /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		044F8FAE22268305008654BE /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		044F8FB02226883C008654BE /* TyDyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyDyItem.swift; sourceTree = "<group>"; };
+		044F8FB322269593008654BE /* Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
 		04CEA36321FB81A9008D622F /* TyDy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TyDy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CEA36621FB81A9008D622F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CEA36B21FB81A9008D622F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		044F8FAC222682D4008654BE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				044F8FB22226956E008654BE /* DB */,
 				044F8FAD222682E2008654BE /* Enums */,
 			);
 			path = Common;
@@ -86,6 +89,14 @@
 				044F8FAE22268305008654BE /* Defaults.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		044F8FB22226956E008654BE /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				044F8FB322269593008654BE /* Encoder.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		04CEA35A21FB81A9008D622F = {
@@ -262,6 +273,7 @@
 				04CEA38F21FB8214008D622F /* TyDyListSceneWorker.swift in Sources */,
 				04CEA39521FB8226008D622F /* TyDyListSceneConfigurator.swift in Sources */,
 				04CEA38E21FB8214008D622F /* TyDyListScenePresenter.swift in Sources */,
+				044F8FB422269593008654BE /* Encoder.swift in Sources */,
 				04CEA39321FB8214008D622F /* TyDyListSceneInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

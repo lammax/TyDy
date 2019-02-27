@@ -53,4 +53,13 @@ enum TyDyListScene
         }
     }
     
+    enum SaveData {
+        struct Request {
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
+    }
+    
 }
