@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		044F8FAF22268305008654BE /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F8FAE22268305008654BE /* Defaults.swift */; };
+		044F8FB12226883C008654BE /* TyDyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F8FB02226883C008654BE /* TyDyItem.swift */; };
 		04CEA36721FB81A9008D622F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA36621FB81A9008D622F /* AppDelegate.swift */; };
 		04CEA36C21FB81A9008D622F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CEA36A21FB81A9008D622F /* Main.storyboard */; };
 		04CEA36E21FB81A9008D622F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04CEA36D21FB81A9008D622F /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		044F8FAE22268305008654BE /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		044F8FB02226883C008654BE /* TyDyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyDyItem.swift; sourceTree = "<group>"; };
 		04CEA36321FB81A9008D622F /* TyDy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TyDy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CEA36621FB81A9008D622F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CEA36B21FB81A9008D622F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				04CEA38C21FB8214008D622F /* TyDyListSceneViewController.swift */,
 				04CEA38D21FB8214008D622F /* TyDyListSceneInteractor.swift */,
 				04CEA39421FB8226008D622F /* TyDyListSceneConfigurator.swift */,
+				044F8FB02226883C008654BE /* TyDyItem.swift */,
 			);
 			path = TyDyListScene;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			files = (
 				044F8FAF22268305008654BE /* Defaults.swift in Sources */,
 				04CEA39021FB8214008D622F /* TyDyListSceneRouter.swift in Sources */,
+				044F8FB12226883C008654BE /* TyDyItem.swift in Sources */,
 				04CEA39121FB8214008D622F /* TyDyListSceneModels.swift in Sources */,
 				04CEA39221FB8214008D622F /* TyDyListSceneViewController.swift in Sources */,
 				04CEA36721FB81A9008D622F /* AppDelegate.swift in Sources */,

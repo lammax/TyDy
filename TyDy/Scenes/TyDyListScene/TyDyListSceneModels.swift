@@ -27,7 +27,7 @@ enum TyDyListScene
     
     enum SaveNewItem {
         struct Request {
-            let itemText: String
+            let item: TyDyItem
         }
         struct Response {
         }
@@ -44,4 +44,13 @@ enum TyDyListScene
         }
     }
 
+    enum UpdateData {
+        struct Request {
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
+    }
+    
 }

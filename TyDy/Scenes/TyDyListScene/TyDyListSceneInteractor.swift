@@ -14,19 +14,20 @@ import UIKit
 
 protocol TyDyListSceneBusinessLogic {
     func addItem(request: TyDyListScene.AddItem.Request)
-    func saveItemText(request: TyDyListScene.SaveNewItem.Request)
+    func saveItem(request: TyDyListScene.SaveNewItem.Request)
     func loadData(request: TyDyListScene.LoadData.Request)
+    func updateData(request: TyDyListScene.UpdateData.Request)
 }
 
 protocol TyDyListSceneDataStore {
-    var itemArray: [String] { get set }
+    var itemArray: [TyDyItem] { get set }
 }
 
 class TyDyListSceneInteractor: TyDyListSceneBusinessLogic, TyDyListSceneDataStore {
     
     var presenter: TyDyListScenePresentationLogic?
     var worker: TyDyListSceneWorker?
-    var itemArray = ["Go walk", "Be happy", "Nice car"]
+    var itemArray = [TyDyItem]()
     
     let defaults = UserDefaults.standard
     
@@ -38,19 +39,24 @@ class TyDyListSceneInteractor: TyDyListSceneBusinessLogic, TyDyListSceneDataStor
         self.presenter?.presentAddItem(response: response)
     }
     
-    func saveItemText(request: TyDyListScene.SaveNewItem.Request) {
-        self.itemArray.append(request.itemText)
-        self.defaults.set(self.itemArray, forKey: Defaults.keys.TyDyArray.rawValue)
+    func saveItem(request: TyDyListScene.SaveNewItem.Request) {
+        self.itemArray.append(request.item)
+        //self.defaults.set(self.itemArray, forKey: Defaults.keys.TyDyArray.rawValue)
         let response = TyDyListScene.SaveNewItem.Response()
-        self.presenter?.presentSaveItemText(response: response)
+        self.presenter?.presentSaveItem(response: response)
     }
     
     func loadData(request: TyDyListScene.LoadData.Request) {
-        if let tyDyArray = self.defaults.array(forKey: Defaults.keys.TyDyArray.rawValue) as? [String] {
+        if let tyDyArray = self.defaults.array(forKey: Defaults.keys.TyDyArray.rawValue) as? [TyDyItem] {
             self.itemArray = tyDyArray
             let response = TyDyListScene.LoadData.Response()
             self.presenter?.presentLoadData(response: response)
         }
+    }
+    
+    func updateData(request: TyDyListScene.UpdateData.Request) {
+        let response = TyDyListScene.UpdateData.Response()
+        self.presenter?.presentUpdateData(response: response)
     }
     
 }
